@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace KnotPhp\Module\KnotConsole\Package;
+namespace KnotPhp\Module\KnotHttp\Package;
 
 use KnotLib\Kernel\Module\PackageInterface;
 use KnotPhp\Module\KnotHttp\KnotHttpResponderModule;
