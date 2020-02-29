@@ -25,7 +25,7 @@ class KnotHttpRoutingMiddlewareModule implements ModuleInterface
     {
         return [];
     }
-    
+
     /**
      * Declare dependent on components
      *
@@ -46,7 +46,7 @@ class KnotHttpRoutingMiddlewareModule implements ModuleInterface
      */
     public static function declareComponentType() : string
     {
-        return ComponentTypes::MODULE;
+        return ComponentTypes::MIDDLEWARE;
     }
 
     /**
