@@ -3,29 +3,39 @@ declare(strict_types=1);
 
 namespace KnotPhp\Module\KnotHttp;
 
-use KnotLib\Http\Middleware\HttpRoutingMiddleware;
 use Throwable;
 
-use KnotLib\Kernel\Module\ComponentModule;
-use KnotLib\Kernel\Module\Components;
+use KnotLib\Http\Middleware\HttpRoutingMiddleware;
+use KnotLib\Kernel\Module\ModuleInterface;
+use KnotLib\Kernel\Module\ComponentTypes;
 use KnotLib\Kernel\Kernel\ApplicationInterface;
 use KnotLib\Kernel\EventStream\Channels;
 use KnotLib\Kernel\EventStream\Events;
 
 use KnotLib\Kernel\Exception\ModuleInstallationException;
 
-class KnotHttpRoutingMiddlewareModule extends ComponentModule
+class KnotHttpRoutingMiddlewareModule implements ModuleInterface
 {
+    /**
+     * Declare dependency on another modules
+     *
+     * @return array
+     */
+    public static function requiredModules() : array
+    {
+        return [];
+    }
+    
     /**
      * Declare dependent on components
      *
      * @return array
      */
-    public static function requiredComponents() : array
+    public static function requiredComponentTypes() : array
     {
         return [
-            Components::EVENTSTREAM,
-            Components::PIPELINE,
+            ComponentTypes::EVENTSTREAM,
+            ComponentTypes::PIPELINE,
         ];
     }
 
@@ -36,7 +46,7 @@ class KnotHttpRoutingMiddlewareModule extends ComponentModule
      */
     public static function declareComponentType() : string
     {
-        return Components::MODULE;
+        return ComponentTypes::MODULE;
     }
 
     /**
